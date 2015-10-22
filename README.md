@@ -30,7 +30,7 @@
 
 #### User-Location vector: one UL vector
 
-* So, graph M = [v(i)] where v = number of stops user has made at i.
+* So, vector M = [v(i)] where v = number of stops user has made at i. (Might even have to take a graph of all users).
 
 * Every user is connected to the locations he/she is visiting. Wait, if the LL graph is made for a single user, why do we even care ?
 
@@ -51,13 +51,15 @@
 
 * I think the rank of a place is going to be proportional to the duration of stay at a particular place.
 
+#### Rank-By-Users:
+
+* If a place has more number of users visiting it, it is more significant.
+
 ### SAMASYA with the approach:
 
 1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ?
 
 2. Okay, one thing here is, the locations might be more if we used the tiered wedding cake approach. But how is that helpful in defining the taste of the user ?
-
-
 
 ## Class Patterns:
 
@@ -75,10 +77,28 @@
 
 5. For users in the same class, it is important that the number of locations here are much more than the number of locations for any particular user.
 
+#### Unified Random Walks : (taken from r90)
 
+* view R90 for more. I am not able to understand right now.
 
 ## SAMASYA with all of this:
 
 1. Why are we even finding locations for a particular user, if we have to recommend the locations from a group (since that is what has more locations).
 
 2. okay, one argument here could be that the LL graph for a prticular user will define his/her taste. But how ?? How do we extract taste from a set of locations, which have been ranked on the basis of a modified PageRank algorithm ? And how do we use those places in a set of similar users ?
+
+3. 
+
+We want this and for each class of users:
+
+Score|Specification
+---|----|
+2|Very interesting to most people in general and recommended
+1|An OK location to most people in general
+0|Neutral to most people in general
+-1|Not interesting to most people in general and not recommended
+-2|I have no idea of what it is
+
+
+
+
