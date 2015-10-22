@@ -103,7 +103,7 @@ Score|Specification
 # TODO :
 
 S.No|Task|Done ?|
-- -|- -|- -|
+:---:|:---:|:---:|
 1.|Create LL graph using location-location travels|-
 2.|Create UL graph, using user location relationships|-
 3.|Apply modified PageRank on LL graph and rank the locations|-
