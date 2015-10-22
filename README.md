@@ -92,7 +92,7 @@
 We want this and for each class of users:
 
 Score|Specification
----|----|
+---|---|
 2|Very interesting to most people in general and recommended
 1|An OK location to most people in general
 0|Neutral to most people in general
@@ -100,5 +100,13 @@ Score|Specification
 -2|I have no idea of what it is
 
 
+# TODO :
 
+S.No|Task|Done ?|
+- -|- -|- -|
+1.|Create LL graph using location-location travels|-
+2.|Create UL graph, using user location relationships|-
+3.|Apply modified PageRank on LL graph and rank the locations|-
+4.|Apply randomised HITS on UL and LL graph|-
+5.|Add more tasks|-
 
