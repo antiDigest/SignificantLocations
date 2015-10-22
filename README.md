@@ -92,6 +92,7 @@
 We want this and for each class of users:
 
 Score|Specification
+---|----|
 2|Very interesting to most people in general and recommended
 1|An OK location to most people in general
 0|Neutral to most people in general
