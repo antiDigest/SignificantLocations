@@ -1,11 +1,15 @@
+import sys
 import os
 import math
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def get_loc_name(lat,lon):
+    geolocator = Nominatim()
     try:
-        location = geolocator.reverse(lat+','+lon)
+        location = geolocator.reverse((str(lat)+','+str(lon)), language='en')
         address = location.address
     except GeocoderTimedOut:
         address = "Not Found"
@@ -31,13 +35,13 @@ def get_initial_final(lat, lon, tim):
     final = []
     i = 0
     fin = 0
-    initial.append([get_loc_name(lat[i], lon[i]),lat[i], lon[i], tim[i]])
+    initial.append([lat[i], lon[i], tim[i]])
     while i < len(lat) - 1:
         if fin == 1:
             initial.append([lat[i], lon[i], tim[i]])
             fin = 0
         if get_minutes(tim[i], tim[i+1]) > 10:
-            final.append([get_loc_name(lat[i], lon[i]),lat[i], lon[i],\
+            final.append([lat[i], lon[i],\
                  tim[i], get_minutes(tim[i], tim[i+1])])
             fin = 1
         i += 1
@@ -59,10 +63,10 @@ def get_distance(initial, final):
         distance.append(d)
     return distance
 
-def write_to_file(fname, x, uid):
+def write_to_file(fname, x, y, uid):
     f = open(fname, "a")
-    for i in x:
-        f.write(str(uid) + ":" + str(i) + '\n')
+    for i in range(0,len(x)):
+        f.write(str(uid) + ":" + str(x[i]) + "to" + str(y[i]) + '\n')
     # f.write("\n")
     f.close()
 
@@ -93,11 +97,12 @@ def begin(folder = "000"):
         
         f.close()
         initial, final = get_initial_final(lat, lon, tim)
+        # print initial_final
+        # return
+        # distance = get_distance(initial, final)
         
-        distance = get_distance(initial, final)
-        
-        write_to_file("initial.txt", initial, fno)
-        write_to_file("final.txt", final, fno)
+        write_to_file("LL_edges.txt", initial, final, fno)
+        # write_to_file("final.txt", final, fno)
 
 def go():
     path = os.getcwd()
@@ -105,8 +110,8 @@ def go():
         fname = "00" + str(i)
         begin(fname)
         os.chdir(path)
-    # begin('010')
-    # os.chdir(path)
+    begin('010')
+    os.chdir(path)
 
 if __name__ == "__main__":
     go()
