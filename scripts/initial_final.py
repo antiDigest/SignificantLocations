@@ -1,5 +1,18 @@
 import os
 import math
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderTimedOut
+
+def get_loc_name(lat,lon):
+    try:
+        location = geolocator.reverse(lat+','+lon)
+        address = location.address
+    except GeocoderTimedOut:
+        address = "Not Found"
+        pass
+
+    print address
+    return address
 
 def get_minutes(t1, t2):
     x = t1.split(":")
@@ -18,13 +31,14 @@ def get_initial_final(lat, lon, tim):
     final = []
     i = 0
     fin = 0
-    initial.append([lat[i], lon[i]])
+    initial.append([get_loc_name(lat[i], lon[i]),lat[i], lon[i], tim[i]])
     while i < len(lat) - 1:
         if fin == 1:
-            initial.append([lat[i], lon[i]])
+            initial.append([lat[i], lon[i], tim[i]])
             fin = 0
-        if get_minutes(tim[i], tim[i+1]) > 60:
-            final.append([lat[i], lon[i]])
+        if get_minutes(tim[i], tim[i+1]) > 10:
+            final.append([get_loc_name(lat[i], lon[i]),lat[i], lon[i],\
+                 tim[i], get_minutes(tim[i], tim[i+1])])
             fin = 1
         i += 1
     final.append([lat[i], lon[i]])
@@ -48,7 +62,7 @@ def get_distance(initial, final):
 def write_to_file(fname, x, uid):
     f = open(fname, "a")
     for i in x:
-        f.write(str(uid) + ":" + str(i[0]) + "," + str(i[1]) + '\n')
+        f.write(str(uid) + ":" + str(i) + '\n')
     # f.write("\n")
     f.close()
 

@@ -1,17 +1,3 @@
-# GPS Trajectories
-# setwd("~/papers/geo/imp/data/Geolife Trajectories 1.3/Geolife Trajectories 1.3/Data/000/Trajectory")
-
-# Read data
-# x = read.table("20081023025304.plt")
-
-# Convert data to data frame
-# y = data.frame(x[1],x[2])
-
-# Plot the data
-# plot(y, main="GPS-000-1", xlab="Latitude", ylab="Longitude")
-
-# Save the data to the file
-# write.table(y, "1.txt", sep=",", row.names=FALSE, col.names=FALSE)
 
 for m in 1:9 {
   dname<-paste("~/significant_locations/gps data/00",m,"/Trajectory",sep="")
@@ -35,4 +21,19 @@ for m in 1:9 {
   #   dev.off()
     write.table(y, paste("coord/",i,".txt", sep=""), sep=",", row.names=FALSE, col.names=FALSE)
   }
+}
+
+# file.exists("../gps data/010/Trajectory/coord/")
+
+dname<-paste("../gps data/010/Trajectory",sep="")
+setwd(dname)
+# Get all the files in a folder
+files <- list.files(pattern="*.plt")
+
+count<-1
+len = length(files)
+for(i in 1:len) {
+  x = read.csv(files[i],skip=6)
+  y = data.frame(x[1],x[2],x[7])
+  write.table(y, paste("coord/",i,".txt", sep=""), sep=",", row.names=FALSE, col.names=FALSE)
 }
