@@ -104,7 +104,7 @@ Score|Specification
 
 S.No|Task|Done ?|
 :---:|:---:|:---:|
-1.|Create LL graph using location-location travels|-
+1.|Create LL graph using location-location travels|done
 2.|Create UL graph, using user location relationships|-
 3.|Apply modified PageRank on LL graph and rank the locations|-
 4.|Apply randomised HITS on UL and LL graph|-
