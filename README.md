@@ -85,11 +85,11 @@
 
 1. Why are we even finding locations for a particular user, if we have to recommend the locations from a group (since that is what has more locations).
 
-2. okay, one argument here could be that the LL graph for a prticular user will define his/her taste. But how ?? How do we extract taste from a set of locations, which have been ranked on the basis of a modified PageRank algorithm ? And how do we use those places in a set of similar users ?
+2. okay, one argument here could be that the LL graph for a particular user will define his/her taste. But how ?? How do we extract taste from a set of locations, which have been ranked on the basis of a modified PageRank algorithm ? And how do we use those places in a set of similar users ?
 
 3. 
 
-We want this and for each class of users:
+We want this and for <strong>each class of users</strong>:
 
 Score|Specification
 ---|---|
@@ -105,7 +105,7 @@ Score|Specification
 S.No|Task|Done ?|
 :---:|:---:|:---:|
 1.|Create LL graph using location-location travels|done
-2.|Create UL graph, using user location relationships|-
+2.|Create UL graph, using user location relationships|done
 3.|Apply modified PageRank on LL graph and rank the locations|-
 4.|Apply randomised HITS on UL and LL graph|-
 5.|Add more tasks|-

@@ -10,7 +10,7 @@ After navigating to the above folder, you need to run this command on your termi
 
 "python manage.py runserver"
 
-If this command give errors, one of the requirements for running the django application are missing.
+If this command gives errors, one of the requirements for running the django application are missing.
 
 Requirements (these can be installed in a virtual environment or on the whole system):
 1. python 2.7.9
