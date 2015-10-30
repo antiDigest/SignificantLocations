@@ -14,25 +14,17 @@
 
 5. Location-Location Graph: One LL graph for one user
 
-	* Uses GPS data as well as checkin-data !
+	* Uses GPS data as well as checkin-data ! (Not using checkin data for the moment)
 
 	* In a way, we make a graph of location to location traversal. From where did the person start and where did he end.
 
-	* In GPS data, every initial and final location, with Dt = 10 minutes, is put down in the graph. From checkin data, if one of the location is not home (found from GPS data, which is usually not), then other locations are put down in your location to location traversal in a single day.
-
-	* Find names of each locations using geopy, if the latitude and longitudes are given for it. Actually, I still have to test what output geopy is giving, we might be able to make it more extensive if we get more data.
+	* Find names of each locations using geopy, if the latitude and longitudes are given for it. Actually, I still have to test what output geopy is giving, we might be able to make it more extensive if we get more data. (Use geopy with a bit more care)
 
 	* So, graph C = [a(i,j)] where a = number of times user has travelled from i to j.
 
 6. User-Location vector: one UL vector
 
 	* So, vector M = [v(i)] where v = number of stops user has made at i. (Might even have to take a graph of all users).
-
-	* Every user is connected to the locations he/she is visiting. Wait, if the LL graph is made for a single user, why do we even care ?
-
-	* If the LL graph is being made for a set of users, class of users, we might have to check out each one of the users, or maybe not, because we already have the data of each of the users (or just the user we will be finding the output for).
-
-	* Might have to consider this graph a little bit more.
 
 7. Rank-By-Visits: The rank of a place increases by the number of visits to that place. Directly proportional. <strong>#4 feature</strong>
 
@@ -44,9 +36,9 @@
 
 ### SAMASYA with the approach:
 
-1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ? <strong>-- APPLES.PDF solves this</strong>
+1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ?<strong> -- solved, new paper solves this</strong>
 
-2. We have to find a list of locations, which are nearby a particular area (the search term specifies the area, and the locations inside and near it are those we are going to visit).
+2. We have to find a list of locations, which are nearby a particular area (the search term specifies the area, and the locations inside and near it are those we are going to visit). BUT HOW DO WE RANK THESE ? because these need to be already ranked for the re-ranking algo to work, and for that we have to have a graph connecting these locations, in order to make the modified PageRank on these work -- big problem, this. Find some other way for this./ Consult sir <strong>-- solved, new paper solves this</strong>
 
 ## Class Patterns:
 
