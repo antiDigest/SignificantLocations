@@ -88,6 +88,7 @@ S.No|Task|Done ?|
 1.|Create LL graph using location-location travels|done
 2.|Create UL graph, using user location relationships|done
 3.|Apply modified PageRank on LL graph and rank the locations|-
-4.|Apply randomised HITS on UL and LL graph|-
-5.|Add more tasks|-
+4.|Apply randomised HITS on UL and LL graph--classify users|-
+5.|Develop a re-ranking algorithm|-
+6.|Pass the list of ranks, through the re-ranking algorithm|-
 
