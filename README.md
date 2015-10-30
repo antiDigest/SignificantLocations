@@ -4,19 +4,15 @@
 
 ### Give Locations Ranks :
 
-1. Get all locations for a user in series. Find all jump points with Dt = 10 minutes.
+1. Get all locations for a user in series. Find all jump points with Dt = 10 minutes. <strong>#1 feature</strong>
 
-2. Store duration of stay
+2. Store duration of stay <strong>#2 feature</strong>
 
-3. Store the time of day (Morning, Afternoon, Evening or Night)
+3. Store the time of day (Morning, Afternoon, Evening or Night, maybe) <strong>#3 feature</strong> (Even though we are not yet classifying, based on the time users visit a particular kind of location, which could actually have been good)
 
-4. For now, let's forget about the home, because obivously it is going to get the maximum rank.
+4. We need two graphs : Location-Location graph (adjacency matrix) - Use PageRank approach here; User-Location Graph (I haven't thought about it yet)
 
-5. Use Tiered Wedding Cake approach on locations near home and ranked places, starting with maximum rank, to the worst rank. The rank to the places in tiered wedding cake approach will be given relative to the rank of the places around which it is applied.
-
-6. We need two graphs : Location-Location graph (adjacency matrix) - Use PageRank approach here; User-Location Graph (I haven't thought about it yet)
-
-7. Location-Location Graph: One LL graph for one user
+5. Location-Location Graph: One LL graph for one user
 
 	* Uses GPS data as well as checkin-data !
 
@@ -28,7 +24,7 @@
 
 	* So, graph C = [a(i,j)] where a = number of times user has travelled from i to j.
 
-8. User-Location vector: one UL vector
+6. User-Location vector: one UL vector
 
 	* So, vector M = [v(i)] where v = number of stops user has made at i. (Might even have to take a graph of all users).
 
@@ -38,17 +34,17 @@
 
 	* Might have to consider this graph a little bit more.
 
-9. Rank-By-Visits: The rank of a place increases by the number of visits to that place. Directly proportional. <strong>#1 feature</strong>
+7. Rank-By-Visits: The rank of a place increases by the number of visits to that place. Directly proportional. <strong>#4 feature</strong>
 
-10. Rank-By-Distance: tiered wedding-cake approach. Inversely proportional to distance. <strong>#2 feature</strong>
+8. Rank-By-Distance: tiered wedding-cake approach. Inversely proportional to distance. <strong>#5 feature</strong>
 
-11. Rank-By-Durations: I think the rank of a place is going to be proportional to the duration of stay at a particular place. <strong>#3 feature</strong>
+9. Rank-By-Durations: I think the rank of a place is going to be proportional to the duration of stay at a particular place. <strong>#2 feature</strong>
 
-12. Rank-By-Users: If a place has more number of users visiting it, it is more significant. <strong>#4 feature</strong>
+10. Rank-By-Users: If a place has more number of users visiting it, it is more significant. <strong>#6 feature -- probably best to leave it in class patterns</strong>
 
 ### SAMASYA with the approach:
 
-1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ? -- APPLES.PDF solves this
+1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ? <strong>-- APPLES.PDF solves this</strong>
 
 2. We have to find a list of locations, which are nearby a particular area (the search term specifies the area, and the locations inside and near it are those we are going to visit).
 
@@ -70,20 +66,18 @@
 
 ## SAMASYA with Classify Users:
 
-1. Why are we even finding locations for a particular user, if we have to recommend the locations from a group (since that is what has more locations). <strong>For each class, the same strategy as mentioned for each user.</strong>
+1. Why are we even finding locations for a particular user <strong>-- for user specific recommendations </strong>, if we have to recommend the locations from a group (since that is what has more locations). <strong>For each class, the same strategy as mentioned for each user.</strong>
 
 2. How do we extract taste from a set of locations, which have been ranked on the basis of a modified PageRank algorithm ? And how do we use those places in a set of similar users ?
-
-3. 
 
 We want this and for <strong>each class of users</strong>:
 
 Score|Specification
 ---|---|
-2|Very interesting to most people in general and recommended
-1|An OK location to most people in general
-0|Neutral to most people in general
--1|Not interesting to most people in general and not recommended
+2|Very interesting to Class/User and recommended
+1|An OK location to Class/User
+0|Neutral to Class/User
+-1|Not interesting to Class/User and not recommended
 -2|I have no idea of what it is
 
 
