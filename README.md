@@ -44,7 +44,7 @@
 
 11. Rank-By-Durations: I think the rank of a place is going to be proportional to the duration of stay at a particular place. <strong>#3 feature</strong>
 
-12. Rank-By-Users: If a place has more number of users visiting it, it is more significant.<strong>#4 feature</strong>
+12. Rank-By-Users: If a place has more number of users visiting it, it is more significant. <strong>#4 feature</strong>
 
 ### SAMASYA with the approach:
 
@@ -58,13 +58,13 @@
 
 2. Classify Users:
 
-	1. Users are classified on the basis of their authority.
+	1. Users are classified on the basis of their authority. Authority and Hub scores for users. <strong>#1 feature</strong>
 
 	2. Assumption : More the authority of a user, more is his tendency to visit a hot location and vica-versa
 
 	3. So, we use HITS algorithms in the UL graph to find out which user was most authoritative. The hub scores give us the travel experience and authority scores give us the significance of the locations the user is visiting.
 
-	4. In a way, HITS is also useful in finding the significance of a location with respect to a user. Authority and hub score for each location. <strong>#1 feature</strong>.
+	4. In a way, HITS is also useful in finding the significance of a location with respect to a user. Authority and hub score for each location. <strong>#2 feature ( why ? )</strong>.
 
 	5. For users in the same class, it is important that the number of locations here are much more than the number of locations for any particular user.
 
