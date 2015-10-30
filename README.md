@@ -90,5 +90,5 @@ S.No|Task|Done ?|
 3.|Apply modified PageRank on LL graph and rank the locations|-
 4.|Apply randomised HITS on UL and LL graph--classify users|-
 5.|Develop a re-ranking algorithm|-
-6.|Pass the list of ranks, through the re-ranking algorithm|-
+6.|Pass the list of ranks on the new search area, through the re-ranking algorithm|-
 
