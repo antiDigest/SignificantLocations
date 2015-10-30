@@ -41,11 +41,11 @@
 
 #### Rank-By-Visits:
 
-* The rank of a place increases by the number of visits to that place.
+* The rank of a place increases by the number of visits to that place. Directly proportional.
 
 #### Rank-By-Distance:
 
-* tiered wedding-cake approach
+* tiered wedding-cake approach. Inversely proportional to distance.
 
 #### Rank-By-Durations:
 
@@ -57,13 +57,13 @@
 
 ### SAMASYA with the approach:
 
-1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ?
+1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ? -- APPLES.PDF solves this
 
 2. Okay, one thing here is, the locations might be more if we used the tiered wedding cake approach. But how is that helpful in defining the taste of the user ?
 
 ## Class Patterns:
 
-1. This is the part, that we'll have to think about ourselves.
+1. This is the part, that we'll have to think about ourselves. HOW DO WE CLASSIFY USERS INTO A CLASS ????
 
 ### Classify Users:
 
@@ -73,13 +73,9 @@
 
 3. So, we use HITS algorithms in the UL graph to find out which user was most authoritative. The hub scores give us the travel experience and authority scores give us the significance of the locations the user is visiting.
 
-4. In a way, HITS is also useful in finding the significance of a location with respect to a user.
+4. In a way, HITS is also useful in finding the significance of a location with respect to a user. Authority and hub score for each location. <strong>#1 feature</strong>.
 
 5. For users in the same class, it is important that the number of locations here are much more than the number of locations for any particular user.
-
-#### Unified Random Walks : (taken from r90)
-
-* view R90 for more. I am not able to understand right now.
 
 ## SAMASYA with all of this:
 
