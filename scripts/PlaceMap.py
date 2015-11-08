@@ -19,12 +19,12 @@ def fetchData():
 		index_col=None,engine='python')
 	size = data.shape[0]
 	places = []
-	for i in data['from']:
+	for i in data['from'][2901:]:
 		place = [i.split(', ')[:2]]
 		if not place in places:
 			places += place
 
-	for i in data['to']:
+	for i in data['to'][2901:]:
 		place = [i.split(', ')[:2]]
 		if not place in places:
 			places += place			
@@ -54,7 +54,7 @@ def fetchAllNames(places):
 	start = time.time()
 	for place in places:
 		write_to_file('../graphs/location_map.txt',fetchPlaceName(place),place)
-		time.sleep(10)
+		# time.sleep(10)
 	end = time.time()
 	print 'Place Names mapped in :',end-start
 	print 'All Names stored in file "../graphs/location_map.txt"'
