@@ -2,3 +2,6 @@
 venv/
 .idea
 *.sqlite*
+Data/
+data.db
+*.csv

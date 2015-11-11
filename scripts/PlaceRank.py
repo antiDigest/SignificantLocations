@@ -38,4 +38,6 @@ def fetchPlaces():
 def PlaceRank():
 	data = fetchData()
 	places = fetchPlaces()
+
+	
 	

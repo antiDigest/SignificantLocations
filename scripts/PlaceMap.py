@@ -19,12 +19,12 @@ def fetchData():
 		index_col=None,engine='python')
 	size = data.shape[0]
 	places = []
-	for i in data['from'][2901:]:
+	for i in data['from']:
 		place = [i.split(', ')[:2]]
 		if not place in places:
 			places += place
 
-	for i in data['to'][2901:]:
+	for i in data['to']:
 		place = [i.split(', ')[:2]]
 		if not place in places:
 			places += place			
