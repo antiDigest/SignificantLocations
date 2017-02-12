@@ -2,6 +2,10 @@
 
 ## User Specific Patterns
 
+This project seemed to be most interesting for me when I started working on it during a Hackathon in India. I only developed a part of it there and then decided to take it up as a full semester project. I gave it as much time as possible and most of the research led me to get to implement recommender systems.
+
+Although, when broken into parts, this problem became something else itself. I tried completing it using graph algorithms like the PageRank and HITS but, user-based ranking was implemented and then converted into a graph, which was then processed using a modified version of the PageRank algorithm found in one of the research papers online.
+
 ### Give Locations Ranks :
 
 1. Get all locations for a user in series. Find all jump points with Dt = 10 minutes. <strong>#1 feature</strong>
@@ -34,7 +38,7 @@
 
 10. Rank-By-Users: If a place has more number of users visiting it, it is more significant. <strong>#6 feature -- probably best to leave it in class patterns</strong>
 
-### SAMASYA with the approach:
+### Problem with the approach:
 
 1. We are only using the locations which we have in the location-location graph. Can we find a way to use all the locations, and in some way find the rank of a location that has not been cited in the LL graph ?<strong> -- solved, new paper solves this</strong>
 
@@ -56,7 +60,7 @@
 
 	5. For users in the same class, it is important that the number of locations here are much more than the number of locations for any particular user.
 
-## SAMASYA with Classify Users:
+## Problem with Classify Users:
 
 1. Why are we even finding locations for a particular user <strong>-- for user specific recommendations </strong>, if we have to recommend the locations from a group (since that is what has more locations). <strong>For each class, the same strategy as mentioned for each user.</strong>
 
